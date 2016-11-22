@@ -26,7 +26,7 @@ public class HashFunction {
 			{ "axe", "Edge tool with a heavy bladed head" }, { "aye", "An affirmative answer" } };
 
 	public HashFunction(int size) {
-
+		// uses separete chaining for collision resolution
 		// arrays inside of arrays
 		arraySize = size;
 		theArray = new WordList[size];
@@ -106,7 +106,7 @@ public class HashFunction {
 		public String definition;
 
 		public int key;
-
+		
 		public Word next;
 
 		public Word(String theWord, String definition) {
