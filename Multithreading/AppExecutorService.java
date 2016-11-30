@@ -26,7 +26,7 @@ class Processor implements Runnable {
 	}
 }
 
-public class AppExecutorSrvice {
+public class AppExecutorService {
 
 	public static void main(String[] args) {
 
