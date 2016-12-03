@@ -9,9 +9,9 @@ import javax.swing.border.*;
 
 public class Calculator extends JFrame {
 
-	JButton button1;
-	JLabel label1, label2, label3;
-	JTextField textField1, textField2;
+	JButton buttonCalculate;
+	JLabel labelNumber1, labelNumber2, labelHowManyTimes;
+	JTextField textFieldNumber1, textFieldNumber2;
 	JCheckBox dollarSign, commaSeparator;
 	JRadioButton addNums, subtractNums, multNums, divideNums;
 	JSlider howManyTimes;
@@ -29,20 +29,20 @@ public class Calculator extends JFrame {
 		this.setTitle("Calculator");
 		JPanel thePanel = new JPanel();
 
-		button1 = new JButton("Calculate");
+		buttonCalculate = new JButton("Calculate");
 		ListenForButton lForButton = new ListenForButton();
-		button1.addActionListener(lForButton);
-		thePanel.add(button1);
+		buttonCalculate.addActionListener(lForButton);
+		thePanel.add(buttonCalculate);
 
-		label1 = new JLabel("Number 1");
-		thePanel.add(label1);
-		textField1 = new JTextField("", 5);
-		thePanel.add(textField1);
+		labelNumber1 = new JLabel("Number 1");
+		thePanel.add(labelNumber1);
+		textFieldNumber1 = new JTextField("", 5);
+		thePanel.add(textFieldNumber1);
 
-		label2 = new JLabel("Number 2");
-		thePanel.add(label2);
-		textField2 = new JTextField("", 5);
-		thePanel.add(textField2);
+		labelNumber2 = new JLabel("Number 2");
+		thePanel.add(labelNumber2);
+		textFieldNumber2 = new JTextField("", 5);
+		thePanel.add(textFieldNumber2);
 
 		dollarSign = new JCheckBox("Dollars");
 		commaSeparator = new JCheckBox("Commas");
@@ -68,8 +68,8 @@ public class Calculator extends JFrame {
 		addNums.setSelected(true);
 		thePanel.add(operPanel);
 
-		label3 = new JLabel("Perform how many times");
-		thePanel.add(label3);
+		labelHowManyTimes = new JLabel("Perform how many times");
+		thePanel.add(labelHowManyTimes);
 		howManyTimes = new JSlider(0, 99, 1);
 		howManyTimes.setMinorTickSpacing(1);
 		howManyTimes.setMajorTickSpacing(10);
@@ -81,7 +81,7 @@ public class Calculator extends JFrame {
 		this.add(thePanel);
 		this.setVisible(true);
 
-		textField1.requestFocus();
+		textFieldNumber1.requestFocus();
 
 	}
 
@@ -89,10 +89,10 @@ public class Calculator extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == button1) {
+			if (e.getSource() == buttonCalculate) {
 				try {
-					number1 = Double.parseDouble(textField1.getText());
-					number2 = Double.parseDouble(textField2.getText());
+					number1 = Double.parseDouble(textFieldNumber1.getText());
+					number2 = Double.parseDouble(textFieldNumber2.getText());
 
 				} catch (NumberFormatException exep) {
 					JOptionPane.showMessageDialog(Calculator.this, "Please enter a valid number", "Error",
@@ -136,7 +136,7 @@ public class Calculator extends JFrame {
 		@Override
 		public void stateChanged(ChangeEvent e) {
 			if (e.getSource() == howManyTimes) {
-				label3.setText("Perform how many times? " + howManyTimes.getValue());
+				labelHowManyTimes.setText("Perform how many times? " + howManyTimes.getValue());
 			}
 		}
 	}
